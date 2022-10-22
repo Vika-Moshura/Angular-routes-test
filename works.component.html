@@ -1,0 +1,13 @@
+<div class="header">Angular list of previous tasks</div>
+<div class="menu">
+  <div>
+    <span>Last works >>></span>
+    <a [routerLink]="[ 'cenzor' ]" routerLinkActive="active">Cenzor</a>
+    <a [routerLink]="[ 'tasklist' ]" routerLinkActive="active">TaskList</a>
+    <a [routerLink]="[ 'userlist' ]" routerLinkActive="active">UserList</a>
+  </div>
+  <a [routerLink]="[ '' ]" routerLinkActive="active" class="right-bar">
+    Back to >>> Home
+  </a>
+</div>
+<router-outlet></router-outlet>
