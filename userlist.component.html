@@ -1,0 +1,41 @@
+<div class="container">
+  <section class="section_left">
+    <p>Login</p>
+    <input type="text" placeholder="Enter login" [(ngModel)]="userLogin">
+    <p>Password</p>
+    <input type="text" placeholder="Enter password" [(ngModel)]="userPassword">
+    <p>Email address</p>
+    <input type="text" placeholder="Enter email" [(ngModel)]="userEmail" pattern="[\w\.-]+@{1}[a-z]{3,}\.[a-z]{2,4}"
+      required>
+    <input type="button" value="Add user" (click)="addUser()" *ngIf="!isEditing">
+    <ng-container *ngIf="!isFilled">
+      <p class="red">Please, fill in valid information</p>
+    </ng-container>
+    <input type="button" value="Save user" (click)="saveUser()" *ngIf="isEditing">
+  </section>
+  <section class="section_right">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Login</th>
+          <th>Password</th>
+          <th>Email</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of arrUsers; index as i">
+          <td>{{i+1}}</td>
+          <td>{{user.login}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.email}}</td>
+          <td><input class="editBtn" type="button" value="Edit" (click)="editUser(i)"></td>
+          <td><input type="button" value="Delete" (click)="deleteUser(i)" [disabled]="isEditing"
+              [ngClass]="{'deleteBtn':true, 'deleteBtn grey':!isEditing}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

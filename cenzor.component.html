@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="badWords">
+      <span>Bad words:</span>
+      <span class="prohibitedWords" [textContent]="arrToString()"></span>
+  
+    </div>
+    <div class="input1">
+      <input type="text" [class]="checkEmpty? 'writeProhibitedWord emptyInput': 'writeProhibitedWord'"
+        [attr.placeholder]="checkEmpty ? 'Please, type a word!' : 'Word here...'" [(ngModel)]="newBadWord">
+      <input type="button" class="btn addProhibitedWord" value="Add" (click)="addBadWord()">
+      <input type="button" class="btn resetProhibitedWord" value="Reset" (click)="resetBadWords()">
+    </div>
+    <div class="input2">
+      <textarea class="writeText" [(ngModel)]="textToBeChecked"></textarea>
+    </div>
+    <input type="button" class="cenzor" value="Cenzor" (click)="checkTheText()">
+  </div>
+  

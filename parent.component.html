@@ -1,0 +1,7 @@
+<div class="container">
+  <p>Plan your day!</p>
+  <p>User: {{user}}. Count of tasks:{{taskCount}}</p>
+  <input type="text" [(ngModel)]="newTask">
+  <input type="button" value="Add" (click)="addNewTask()">
+  <app-child (fromChild)="getCount($event)" [arrTasks]="tasks"></app-child>
+</div>
